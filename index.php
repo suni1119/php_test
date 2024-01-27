@@ -1,25 +1,15 @@
-<!doctype html>
-<head></head>
-<body>
-
-htmlです。
-
 <?php
 
-echo('phpです');
+'こんにちは';
+"こんにちは";
+
+echo(123);
+echo('<br>');
+echo('こんにちは');
+echo('<br>');
+echo('こんば""んは');
+echo('<br>');
+echo('はじめまして');
 
 
 ?>
-
-</body>
-</html>
-
-
-<?php
-
-echo('最後の?>はphpだけのファイルは不要')
-
-echo('htmlと混ぜるときは?>が必要になる')
-
-
-
