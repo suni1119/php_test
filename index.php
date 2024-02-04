@@ -52,6 +52,88 @@ $test_3 = $test_1 . $test_2;
 //文字の場合は''を付ける
 const MAX = 10;
 echo MAX;
+echo('<br>');
 
+
+//セクション1-11 配列,数字も文字も可能⇒数字と値がセット
+//プログラミングは0から始まる
+//↓1行の場合
+$array = ['あ',2,3];
+
+$array_2 = [
+    ['赤','青','黄'],
+    ['緑','紫','黒']
+];
+
+echo $array[1];
+//↓まとめて配列の中身が見たいときvar_dump
+//配列を縦にしたいときpreではさむ
+echo '<pre>';
+var_dump($array_2);
+echo '</pre>';
+
+echo $array_2[1][1];
+
+/*連想配列はキーと値がセット
+キー⇒値
+key⇒value
+キーは文字になるから''で囲む
+値はコンマで1つずつ区切る
+*/
+
+$array_member = [
+    'name' => '本田',
+    'height' => 170,
+    'hobby'=> 'サッカー'
+];
+echo $array_member['hobby'];
+
+$array_member_2 = [
+    '本田' => [
+        'height' => 170,
+        'hobby' => 'サッカー'
+    ],
+    '香川' => [
+        'height' => 165,
+        'hobby' => 'サッカー'
+    ]
+];
+
+echo $array_member_2['香川']['height'];
+echo '<pre>';
+var_dump($array_member_2);
+echo '</pre>';
+
+$array_member_3 = [
+    '1kumi' => [
+        '本田' =>[
+            'height' => 170,
+            'hobby' => 'サッカー'
+        ],
+        '香川' => [
+            'height' => 165,
+            'hobby' => 'サッカー'
+        ]
+    ],
+    '2kumi' => [
+        '長友' => [
+            'height' => 160,
+            'hobby' => 'サッカー'
+        ],
+        '乾' => [
+            'height' => 168,
+            'hobby' => 'サッカー'
+        ]
+    ]
+    
+];
+echo $array_member_3['2kumi']['長友']['height'];
+
+echo '<pre>';
+var_dump($array_member_3);
+echo '</pre>';
+
+//階層を深めていくことになれる
 
 ?>
+
