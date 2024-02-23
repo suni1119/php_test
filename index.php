@@ -203,12 +203,225 @@ if ($age <= '18'){
     }
 
     
-
-
-
+echo ('<br>'); 
 
 
 // ---------------------------------------------pull requestの練習---------------------------------
+
+// --------------foreach セクション1ｰ19--------------------------------
+// foreach セクション1ｰ19 複数の値を展開したり表示したりする
+// 変数を書くときは複数形と単数形で書くとわかりやすい
+
+$members = [
+    'name' => '本田',
+    'height' => '170',
+    'hobby' => 'サッカー'
+];
+
+// バリューのみの表示
+foreach ($members as $member) {
+    echo $member;
+}
+echo ('<br>');
+// キーとバリューそれぞれの配置
+foreach ($members as $key => $value){
+    echo $key . 'は' . $value. 'です';
+}
+echo ('<br>');
+
+
+// --------------------------------------
+
+//多段階の配列を展開する場合foreachの中にforeachを使う
+$members_2 = [
+    '本田' => [
+    'height' => 170,
+    'nobby' => 'サッカー'
+    ],
+    '香川' => [
+        'height' => 165,
+        'nobby' => 'サッカー'
+    ]
+];
+foreach ($members_2 as $member_1) {
+    foreach ($member_1 as $member => $value) {
+        echo $member . 'は' . $value . 'です。';
+    }
+}
+
+// -----------foreach セクション1ｰ20--------------------
+
+// for1繰り返す数が決まっていれば
+// while繰り返す数が決まっていなかったら
+echo ('<br>');
+
+for ($i = 0; $i < 10; $i++ ){
+    if ($i === 5){
+       // break;
+    continue;
+    }
+    echo $i;
+}
+echo ('<br>');
+$j = 0;
+while ($j < 5) {
+    echo $j;
+    $j++;
+}
+
+do {echo $j;}
+while ($j <5);
+
+echo ('<br>');
+
+$data = 1;
+
+switch ($data) {
+    case 1:
+        echo '1です';
+        break;
+    case 2:
+        echo '2です';
+        break;
+    case 3:
+        echo '3です';
+        break;
+    default:
+        echo '1-3ではありません';
+}
+echo ('<br>');
+//------------------------------------------------------
+
+//セクション1-22 定数関数その1
+//関数 function
+
+//function test (引数インプット) {
+ //処理
+    //return 戻り値;
+//}
+
+//---引数なし、アウトプットなし
+
+function test () {
+    echo 'テスト';
+}
+
+test ();
+
+//----------引数あり、アウトプットなし
+function getComment ($string) {
+    echo $string;
+}
+
+getComment('コメント');
+
+
+$comment = 'コメント2';
+
+//-------インプット引数なし
+//-------アウトプット戻り値あり
+function getNumberOfComment () {
+    return 5;
+}
+
+$commentNumber = getNumberOfComment();
+echo getNumberOfComment();
+echo $commentNumber;
+
+//引数2つ
+//戻り値あり
+
+function sumPrice ($int1, $int2) {
+    $int3 = $int1 + $int2;
+    return $int3;
+}
+
+$total = sumPrice(3,5);
+echo $total;
+echo ('<br>');
+//-----------------------------------------------------
+//セクション1ｰ25　文字列関数
+//文字列の長さ
+$text = 'abc';
+echo strlen ($text);
+
+$text = 'あいうえお';
+//echo strlen ($text);
+
+echo mb_strlen($text);
+
+//文字列の置換
+
+$str = '文字列を置換します';
+echo str_replace ('置換','ちかん',$str);
+
+//指定文字列で分割,引数は2つ
+$str_2 = '指定文字列で、分割します';
+explode ('、' , $str_2);
+
+//implode
+//正規表現⇒文字かどうか、数字かどうか
+// 郵便番号、メアド test@gmail.com の@や.があるかどうかの確認
+$str_3 = '特定の文字列が含まれるか確認する';
+echo preg_match ('/文字列/',$str_3);
+
+echo ('<br>');
+
+// 指定文字列から文字列を取得する
+
+echo substr ('abcde', 2);
+echo mb_substr ('かきくけこ', 2);
+
+
+//配列に配列を追加する
+$array = ['リンゴ','みかん'];
+array_push ($array,'ブドウ','梨'); 
+echo ('<br>');
+
+$postalCode = '123-4567';
+
+function checkPostalCode ($str) {
+    $replaced = str_replace ('-','','$str');
+    $length = strlen ($replaced);
+
+    var_dump ($length);
+    if ($length === 7) {
+        return false;
+    }
+    return false;
+}
+
+var_dump (checkPostalCode($postalCode));
+
+
+//camelCase
+//checkPostalCode()
+
+//snakeCase
+//check_postal_code()
+
+$globalVariable = 'グローバル変数です';
+
+function checkScope ($str){
+    $localVariable = 'ローカル変数です';
+    //global $globalVariable;
+    echo $str;
+}
+
+echo $globalVariable;
+echo $localVariable;
+
+checkScope ($globalVariable);
+
+
+require __DIR__ . '/common/common.php';
+
+echo $commonVariable;
+
+echo __FILE__;
+
+commonTest();
+
 ?>
 
 
